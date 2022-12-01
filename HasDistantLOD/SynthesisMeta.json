@@ -1,0 +1,11 @@
+{
+  "Nickname": "",
+  "Visibility": "Visible",
+  "OneLineDescription": "Removes HasDistantLOD flag from static records.",
+  "LongDescription": "Removes HasDistantLOD flag from static records.",
+  "PreferredAutoVersioning": "Default",
+  "RequiredMods": [],
+  "TargetedReleases": [
+    "Fallout4"
+  ]
+}
