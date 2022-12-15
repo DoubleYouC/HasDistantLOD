@@ -1,5 +1,5 @@
 {
-  "Nickname": "",
+  "Nickname": "HasDistantLOD",
   "Visibility": "Visible",
   "OneLineDescription": "Removes HasDistantLOD flag from static records.",
   "LongDescription": "Removes HasDistantLOD flag from static records.",
