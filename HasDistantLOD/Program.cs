@@ -29,13 +29,15 @@ namespace HasDistantLOD
             foreach (var staticGetter in state.LoadOrder.PriorityOrder.Static().WinningOverrides())
             {
                 //skip statics that don't have the HasDistantLod flag
-                if (!EnumExt.HasFlag(staticGetter.MajorRecordFlagsRaw, (int)Static.MajorFlag.HasDistantLod)) continue;
+                if (!Enums.HasFlag(staticGetter.MajorRecordFlagsRaw, (int)Static.MajorFlag.HasDistantLod)) continue;
+                if (staticGetter is null || staticGetter.EditorID is null) continue;
+                if (staticGetter.EditorID.Contains("FOLIP_")) continue;
 
                 //add it to the patch
                 var myFavoriteStatic = state.PatchMod.Statics.GetOrAddAsOverride(staticGetter);
                 
                 //remove flag
-                myFavoriteStatic.MajorRecordFlagsRaw = EnumExt.SetFlag(staticGetter.MajorRecordFlagsRaw, (int)Static.MajorFlag.HasDistantLod, false);
+                myFavoriteStatic.MajorRecordFlagsRaw = Enums.SetFlag(staticGetter.MajorRecordFlagsRaw, (int)Static.MajorFlag.HasDistantLod, false);
                 if (Settings.verboseConsoleLog)
                     Console.WriteLine($"Removed HasDistantLOD flag from {staticGetter.EditorID}.");
             }
